@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>About - Bassam Kattoor</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body class="page">
+	<header class="nav">
+		<a class="brand" href="index.html">BK</a>
+		<nav class="nav-links">
+			<a class="active" href="about.html">About</a>
+			<button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+		</nav>
+	</header>
+
+	<main class="container">
+		<section class="hero-card two-col">
+			<div class="hero-copy">
+				<h2>Hey, I’m Bassam.</h2>
+				<p>I’m a first‑year BCA student at CEK (Karunagappally). I love exploring new tech, volunteering, and working with people. I learn fast by doing small projects, quick experiments, and constant iteration. If there’s a challenge, I’ll try, fail, learn, and try again.</p>
+				<p>Right now I’m building my web foundation with HTML, CSS, JavaScript, and C. I want to collaborate on fun ideas, contribute to college/community projects, and grow into a confident developer who ships clean, simple products.</p>
+				<p class="easter">Fun fact: I slice onions faster than 85% of people 🧅</p>
+			</div>
+			<div class="hero-headshot">
+				<img src="assets/headshot.jpg" alt="Photo of Bassam Kattoor" />
+			</div>
+		</section>
+
+		<section class="card">
+			<h3>Skills - learning meter</h3>
+			<ul class="skills">
+				<li class="skill">
+					<span>JavaScript</span>
+					<div class="bar" data-percent="10"><b>10%</b></div>
+				</li>
+				<li class="skill">
+					<span>HTML</span>
+					<div class="bar" data-percent="10"><b>10%</b></div>
+				</li>
+				<li class="skill">
+					<span>CSS</span>
+					<div class="bar" data-percent="5"><b>5%</b></div>
+				</li>
+				<li class="skill">
+					<span>C</span>
+					<div class="bar" data-percent="5"><b>5%</b></div>
+				</li>
+			</ul>
+			<p class="tiny">Just started - I’ll grow these bars as I ship projects.</p>
+		</section>
+
+		<section class="card fun-grid">
+			<div>
+				<h3>Mini‑timeline</h3>
+				<ul class="timeline">
+					<li><span>School</span> JFKMVHSS, Karunagappally</li>
+					<li><span>Now</span> BCA @ CEK</li>
+					<li><span>Next</span> Build micro‑projects + join collab teams</li>
+				</ul>
+			</div>
+
+			<div class="contact-card">
+				<h3>Contact</h3>
+				<form id="contactForm" class="form contact-form" method="POST" action="https://formspree.io/f/your-id-here">
+					<label><span>Name</span><input name="name" type="text" required></label>
+					<label><span>Email</span><input name="email" type="email" required></label>
+					<label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+
+					<!-- Quick message chips -->
+					<div class="quick-chips" aria-label="Quick message ideas">
+						<button type="button" class="chip" data-text="Collab idea: I’ve got a mini project we can build.">Collab idea</button>
+						<button type="button" class="chip" data-text="Event invite: Can you speak or help at our meetup?">Event invite</button>
+						<button type="button" class="chip" data-text="Volunteer: I’d love to help your team/community.">Volunteer</button>
+						<button type="button" class="chip" data-text="Feedback: I checked your portfolio and have suggestions.">Feedback</button>
+					</div>
+
+					<button class="btn primary wide" type="submit">Send</button>
+
+					<div class="or-divider" role="separator" aria-label="or">
+						<span>or</span>
+					</div>
+
+					<p class="tiny center">
+						email <a href="mailto:thrivewithbassam@gmail.com">thrivewithbassam@gmail.com</a>
+					</p>
+					<p id="formStatus" class="status center" role="status" aria-live="polite"></p>
+				</form>
+			</div>
+
+			<div>
+				<h3>Say something nice</h3>
+				<button class="btn primary wobble-btn" id="randomCompliment">Boost me</button>
+				<p id="complimentText" class="micro"></p>
+			</div>
+		</section>
+	</main>
+
+	<section class="social-footer">
+		<div class="social-wrap">
+			<a class="pill" href="https://wa.me/qr/XCANKKQMWSSQL1" target="_blank" rel="noreferrer"><span>WhatsApp</span></a>
+			<a class="pill" href="https://www.instagram.com/bassam_kattoor?igsh=OGpoc3JwM3NjOTZr" target="_blank" rel="noreferrer"><span>Instagram</span></a>
+			<a class="pill" href="https://x.com/BassamKattoor?t=a84rR7J4FQDfR-40p8Y5lg&s=08" target="_blank" rel="noreferrer"><span>X</span></a>
+			<a class="pill" href="https://www.linkedin.com/in/bassam-kattoor-a681a3341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer"><span>LinkedIn</span></a>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<p>© <span id="year"></span> Bassam Kattoor</p>
+	</footer>
+
+	<div id="onionRain" aria-hidden="true"></div>
+	<script src="main.js"></script>
+</body>
+</html>
