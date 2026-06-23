@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bassam Kattoor - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --black: #0A0A0A;
+      --amber: #F5A623;
+      --amber-dim: #C4841B;
+      --off-white: #F0EDE8;
+      --card: #141414;
+      --border: #222;
+      --muted: #888;
+      --text: #D8D4CE;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* A4 Resume Container */
+    .resume-container {
+      width: 100%;
+      max-width: 850px;
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      padding: 3.5rem 4rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .name {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--off-white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--amber);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .contact-info a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info a:hover {
+      color: var(--amber);
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--off-white);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Grid Layout */
+    .resume-body {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    /* Item Styles */
+    .item { margin-bottom: 1.5rem; }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+    .item-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--off-white);
+    }
+    .item-date {
+      font-size: 0.85rem;
+      color: var(--amber);
+      font-weight: 500;
+    }
+    .item-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .item-bullets {
+      list-style-type: none;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .item-bullets li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .item-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+    }
+
+    /* Skills */
+    .skills-group {
+      margin-bottom: 1.5rem;
+    }
+    .skills-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    /* Print Styles for PDF Generation */
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 0;
+      }
+      .resume-container {
+        background: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .name, .item-title, .section-title {
+        color: #000;
+      }
+      .tagline, .item-date, .skills-title, .item-bullets li::before {
+        color: #C4841B; /* Darker amber for print */
+      }
+      .contact-info a {
+        color: #333;
+      }
+      :root {
+        --border: #ddd;
+        --card: #f9f9f9;
+        --text: #333;
+        --muted: #666;
+      }
+      .section-title { border-bottom-color: #ddd; }
+      header { border-bottom-color: #ddd; }
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .resume-body { grid-template-columns: 1fr; gap: 2rem; }
+      header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .contact-info { text-align: left; }
+      .resume-container { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-container">
+    <header>
+      <div>
+        <h1 class="name">Bassam Kattoor</h1>
+        <p class="tagline">Founder · Producer · Developer</p>
+      </div>
+      <div class="contact-info">
+        <p><a href="mailto:bassamkattoor@gmail.com">bassamkattoor@gmail.com</a></p>
+        <p><a href="https://github.com/bassamkattoor" target="_blank">github.com/bassamkattoor</a></p>
+        <p><a href="https://x.com/BassamKattoor" target="_blank">Twitter / X</a></p>
+      </div>
+    </header>
+
+    <div class="resume-body">
+      <!-- LEFT COLUMN -->
+      <div class="col-main">
+        <h2 class="section-title">Experience</h2>
+        
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">WILD Productions</h3>
+            <span class="item-date">2026 – Present</span>
+          </div>
+          <p class="item-subtitle">Event Production Company (Founder)</p>
+          <ul class="item-bullets">
+            <li>Managed and executed 50+ events from concept to curtain call</li>
+            <li>Handled end-to-end planning, logistics, and vendor coordination</li>
+            <li>Anchored and hosted multiple live programs</li>
+            <li>Led diverse teams to ensure flawless on-ground execution</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">IEDC MACE</h3>
+            <span class="item-date">Feb 2025 – Present</span>
+          </div>
+          <p class="item-subtitle">Webmaster</p>
+          <ul class="item-bullets">
+            <li>Directed digital presence and web architecture for the innovation cell</li>
+            <li>Improved performance, SEO, and accessibility across college event pages</li>
+            <li>Built scalable central platforms handling hundreds of student registrations</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">IEDC MACE</h3>
+            <span class="item-date">May 2024 – Jan 2025</span>
+          </div>
+          <p class="item-subtitle">Event Head</p>
+          <ul class="item-bullets">
+            <li>Spearheaded event strategy, conceptualizing high-impact technical programs</li>
+            <li>Managed cross-functional teams, securing sponsorships and speakers</li>
+            <li>Delivered 15+ major college-wide events with record attendance</li>
+          </ul>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 3rem;">Education</h2>
+        
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Mar Athanasius College of Engineering</h3>
+            <span class="item-date">Graduating 2027</span>
+          </div>
+          <p class="item-subtitle">B.Tech in Computer Science & Engineering</p>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <h3 class="item-title">Bhavans Munshi Vidyashram</h3>
+            <span class="item-date">High School</span>
+          </div>
+          <p class="item-subtitle">Thiruvamkulam</p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-side">
+        <h2 class="section-title">Skills</h2>
+        
+        <div class="skills-group">
+          <h4 class="skills-title">Leadership & Professional</h4>
+          <div class="skills-list">
+            <span class="skill-chip">Event Production</span>
+            <span class="skill-chip">Team Leadership</span>
+            <span class="skill-chip">Public Speaking</span>
+            <span class="skill-chip">Project Management</span>
+            <span class="skill-chip">Community Building</span>
+            <span class="skill-chip">Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h4 class="skills-title">Technical Expertise</h4>
+          <div class="skills-list">
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">HTML & CSS</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">C</span>
+            <span class="skill-chip">Web Development</span>
+            <span class="skill-chip">AI Tools</span>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 3rem;">Leadership Roles</h2>
+        
+        <div class="item" style="margin-bottom: 1rem;">
+          <h3 class="item-title" style="font-size: 1rem;">Maker Gram</h3>
+          <p class="item-subtitle" style="margin-bottom: 0;">Community Leader</p>
+        </div>
+        <div class="item" style="margin-bottom: 1rem;">
+          <h3 class="item-title" style="font-size: 1rem;">MULEARN</h3>
+          <p class="item-subtitle" style="margin-bottom: 0;">Campus Ambassador</p>
+        </div>
+        <div class="item" style="margin-bottom: 1rem;">
+          <h3 class="item-title" style="font-size: 1rem;">MACS</h3>
+          <p class="item-subtitle" style="margin-bottom: 0;">Volunteer</p>
+        </div>
+        <div class="item" style="margin-bottom: 1rem;">
+          <h3 class="item-title" style="font-size: 1rem;">IEDC MACE</h3>
+          <p class="item-subtitle" style="margin-bottom: 0;">Co-Lead</p>
+        </div>
+        <div class="item" style="margin-bottom: 1rem;">
+          <h3 class="item-title" style="font-size: 1rem;">Computer Association</h3>
+          <p class="item-subtitle" style="margin-bottom: 0;">Chairperson (2023)</p>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <button onclick="window.print()" style="background:var(--amber); color:var(--black); border:none; padding:0.8rem 1.5rem; font-family:'Inter', sans-serif; font-weight:600; cursor:pointer; border-radius:4px; font-size:0.9rem;" class="print-btn">
+            Print / Save to PDF
+          </button>
+          <style>
+            @media print { .print-btn { display: none !important; } }
+            .print-btn:hover { background: #fff; }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
