@@ -441,6 +441,24 @@
   /* ACTION BUTTONS */
   .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
 
+  /* COLLAGE & LIGHTBOX */
+  .project-img.collage {
+    display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; background: var(--black);
+  }
+  .project-img.collage img { cursor: none; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.3s; }
+  .project-img.collage img:first-child { grid-row: span 2; }
+  .project-img.collage:hover img { opacity: 1; }
+  
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(10,10,10,0.95); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .lightbox.active { opacity: 1; pointer-events: auto; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+  .lightbox-close { position: absolute; top: 2rem; right: 2rem; font-size: 3rem; color: var(--off-white); cursor: none; transition: color 0.2s; }
+  .lightbox-close:hover { color: var(--amber); }
+
   /* REVEAL ANIMATION */
   .reveal {
     opacity: 0; transform: translateY(30px);
@@ -644,7 +662,7 @@
   <div class="project-grid">
     <div class="project-card reveal">
       <div class="project-img">
-        <img src="assets/wild_logo.jpeg" alt="WILD Productions" onerror="this.style.display='none'">
+        <img src="assets/wild_logo.jpg" class="lightbox-trigger" alt="WILD Productions" onerror="this.style.display='none'">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
       </div>
       <div class="project-content">
@@ -656,8 +674,10 @@
     </div>
     
     <div class="project-card reveal">
-      <div class="project-img">
-        <img src="assets/corporate_event.jpeg" alt="Corporate Events" onerror="this.style.display='none'">
+      <div class="project-img collage">
+        <img src="assets/corp_1.jpg" class="lightbox-trigger" alt="Corporate Event 1" onerror="this.style.display='none'">
+        <img src="assets/corp_2.jpg" class="lightbox-trigger" alt="Corporate Event 2" onerror="this.style.display='none'">
+        <img src="assets/corp_3.jpg" class="lightbox-trigger" alt="Corporate Event 3" onerror="this.style.display='none'">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
       </div>
       <div class="project-content">
@@ -670,7 +690,7 @@
 
     <div class="project-card reveal">
       <div class="project-img">
-        <img src="assets/aaravam.jpeg" alt="AARAVAM 2.0" onerror="this.style.display='none'">
+        <img src="assets/aaravam.JPG" class="lightbox-trigger" alt="AARAVAM 2.0" onerror="this.style.display='none'">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
       </div>
       <div class="project-content">
@@ -685,7 +705,7 @@
 
     <div class="project-card reveal">
       <div class="project-img">
-        <img src="assets/portfolio.jpeg" alt="Personal Portfolio" onerror="this.style.display='none'">
+        <img src="assets/portfolio.jpeg" class="lightbox-trigger" alt="Personal Portfolio" onerror="this.style.display='none'">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
       </div>
       <div class="project-content">
@@ -964,7 +984,7 @@
     requestAnimationFrame(animCursor);
   }
   animCursor();
-  document.querySelectorAll('a, button, .skill-card, .bento-card, .edu-card').forEach(el => {
+  document.querySelectorAll('a, button, .skill-card, .bento-card, .edu-card, .lightbox-trigger, .lightbox-close').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(2)';
       ring.style.width = '60px'; ring.style.height = '60px'; ring.style.opacity = '0.2';
@@ -1138,5 +1158,25 @@
     c.style.cssText += 'border:1px solid var(--border);background:transparent;color:var(--text);padding:0.35rem 0.8rem;border-radius:999px;cursor:none;font-size:0.73rem;font-family:Inter,sans-serif;transition:background 0.15s,border-color 0.15s,color 0.15s;';
   });
 </script>
+
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="Zoomed View">
+</div>
+
+<script>
+  // --- LIGHTBOX JS ---
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.lightbox-trigger').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+</script>
+
 </body>
 </html>
