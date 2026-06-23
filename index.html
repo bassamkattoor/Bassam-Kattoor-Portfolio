@@ -399,6 +399,48 @@
   }
   footer a { color: var(--amber); text-decoration: none; }
 
+  /* PROJECT CARDS */
+  .project-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;
+  }
+  .project-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 2px;
+    overflow: hidden; transition: border-color 0.25s, transform 0.25s;
+    display: flex; flex-direction: column; cursor: none;
+  }
+  .project-card:hover { border-color: var(--amber); transform: translateY(-3px); }
+  .project-img {
+    height: 180px; background: var(--black); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;
+  }
+  .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.3s; }
+  .project-card:hover .project-img img { opacity: 1; }
+  .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+  .project-cat { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; }
+  .project-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .project-desc { font-size: 0.85rem; color: var(--text); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+  .project-link { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; align-self: flex-start; text-decoration: none; }
+  .project-card:hover .project-link { color: var(--amber); border-color: var(--amber); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative; margin-top: 3rem; padding-left: 2rem; border-left: 1px solid var(--border);
+  }
+  .timeline-item { position: relative; padding-bottom: 3rem; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute; left: -2.35rem; top: 0.3rem; width: 12px; height: 12px;
+    background: var(--black); border: 2px solid var(--amber); border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .timeline-item:hover .timeline-dot { background: var(--amber); transform: scale(1.2); }
+  .timeline-year { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; display: block; }
+  .timeline-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .timeline-org { font-size: 0.85rem; color: var(--text); }
+  
+  /* ACTION BUTTONS */
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
   /* REVEAL ANIMATION */
   .reveal {
     opacity: 0; transform: translateY(30px);
@@ -429,6 +471,7 @@
     #about { grid-template-columns: 1fr; gap: 2rem; }
     .about-img { display: none; }
     .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .project-grid { grid-template-columns: 1fr; }
     .bento-card.c1, .bento-card.c2,
     .bento-card.c3, .bento-card.c4, .bento-card.c5 { grid-column: span 12; }
     .edu-grid { grid-template-columns: 1fr; }
@@ -481,9 +524,10 @@
     BCA student, event producer, and founder building things that move people -
     on stage, on screen, and on the web.
   </p>
-  <div class="hero-bottom">
+  <div class="hero-bottom" style="flex-wrap: wrap; gap: 1.5rem;">
     <a href="#experience" class="btn-primary">See my work ↓</a>
     <a href="#contact" class="btn-ghost">Get in touch</a>
+    <a href="#" class="btn-ghost" title="Replace # with your PDF path">📄 Download Resume</a>
   </div>
   <div class="hero-scroll-hint">
     <div class="scroll-line"></div>
@@ -591,6 +635,76 @@
   </div>
 </section>
 
+<!-- FEATURED WORK -->
+<section class="section" id="featured-work">
+  <p class="section-label reveal">Featured Work</p>
+  <h2 class="section-title reveal">Proof of execution.</h2>
+  <p class="reveal" style="color:var(--muted);margin-top:1rem;max-width:600px;line-height:1.6;font-size:0.95rem;">A selection of projects, events, and initiatives I've built, led, or contributed to.</p>
+  
+  <div class="project-grid">
+    <div class="project-card reveal">
+      <div class="project-img">
+        <img src="assets/wild_logo.jpeg" alt="WILD Productions" onerror="this.style.display='none'">
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
+      </div>
+      <div class="project-content">
+        <span class="project-cat">Event Production</span>
+        <h3 class="project-title">WILD Productions</h3>
+        <p class="project-desc">Founded and scaled an event production company delivering live experiences, stage productions, and branded events.</p>
+        <a href="#contact" class="project-link">View Details →</a>
+      </div>
+    </div>
+    
+    <div class="project-card reveal">
+      <div class="project-img">
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
+      </div>
+      <div class="project-content">
+        <span class="project-cat">Event Management</span>
+        <h3 class="project-title">Lifestyle Opportunity Meet</h3>
+        <p class="project-desc">Managed event planning, logistics, branding, stage setup, and audience experience.</p>
+        <a href="#contact" class="project-link">View Details →</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img">
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
+      </div>
+      <div class="project-content">
+        <span class="project-cat">Event Production</span>
+        <h3 class="project-title">AARAVAM 2.0</h3>
+        <p class="project-desc">Contributed to large-scale event execution, visual branding, and production management.</p>
+        <a href="#contact" class="project-link">View Details →</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img">
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
+      </div>
+      <div class="project-content">
+        <span class="project-cat">Community & Learning</span>
+        <h3 class="project-title">LETSkillit</h3>
+        <p class="project-desc">Building initiatives that help students learn practical skills and industry-relevant knowledge.</p>
+        <a href="#contact" class="project-link">View Details →</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-img">
+        <div style="position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0h40v40H0V0zm20 20l10-10H10l10 10z\' fill=\'%23F5A623\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/></svg>');z-index:-1;"></div>
+      </div>
+      <div class="project-content">
+        <span class="project-cat">Web Development</span>
+        <h3 class="project-title">Personal Portfolio</h3>
+        <p class="project-desc">Designed and developed a premium personal brand website focused on leadership, projects, and impact.</p>
+        <a href="#contact" class="project-link">View Details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section class="section" id="skills">
   <div class="skills-header">
@@ -599,7 +713,9 @@
       <h2 class="section-title reveal">What I bring to the table.</h2>
     </div>
   </div>
-  <div class="skills-grid">
+  
+  <h3 class="reveal" style="font-family:'Syne',sans-serif;font-size:1.2rem;margin:3rem 0 1.5rem;color:var(--amber);">Technical Skills</h3>
+  <div class="skills-grid" style="margin-bottom:3rem;">
     <div class="skill-card reveal">
       <span class="skill-icon">⚡</span>
       <p class="skill-name">JavaScript</p>
@@ -625,15 +741,39 @@
       <p class="skill-name">AI Prompt Engineering</p>
       <p class="skill-desc">Leveraging AI tools to accelerate creative and technical workflows.</p>
     </div>
+  </div>
+
+  <h3 class="reveal" style="font-family:'Syne',sans-serif;font-size:1.2rem;margin:3rem 0 1.5rem;color:var(--amber);">Leadership & Professional Skills</h3>
+  <div class="skills-grid">
     <div class="skill-card reveal">
-      <span class="skill-icon">🎤</span>
-      <p class="skill-name">Event Management</p>
-      <p class="skill-desc">End-to-end production, anchoring, team leadership, and live show execution.</p>
+      <span class="skill-icon">🎟️</span>
+      <p class="skill-name">Event Production</p>
+      <p class="skill-desc">Planning, coordinating, and executing live experiences from concept to completion.</p>
     </div>
     <div class="skill-card reveal">
       <span class="skill-icon">🤝</span>
-      <p class="skill-name">Team Coordination</p>
-      <p class="skill-desc">Cross-functional team leadership, delegation, and high-pressure execution.</p>
+      <p class="skill-name">Team Leadership</p>
+      <p class="skill-desc">Leading teams, delegating responsibilities, and ensuring successful outcomes.</p>
+    </div>
+    <div class="skill-card reveal">
+      <span class="skill-icon">🎤</span>
+      <p class="skill-name">Public Speaking</p>
+      <p class="skill-desc">Hosting sessions, anchoring events, and communicating confidently with audiences.</p>
+    </div>
+    <div class="skill-card reveal">
+      <span class="skill-icon">📊</span>
+      <p class="skill-name">Project Management</p>
+      <p class="skill-desc">Managing timelines, resources, stakeholders, and execution.</p>
+    </div>
+    <div class="skill-card reveal">
+      <span class="skill-icon">🌍</span>
+      <p class="skill-name">Community Building</p>
+      <p class="skill-desc">Growing student communities, organizing initiatives, and driving engagement.</p>
+    </div>
+    <div class="skill-card reveal">
+      <span class="skill-icon">🧠</span>
+      <p class="skill-name">Problem Solving</p>
+      <p class="skill-desc">Approaching challenges strategically and finding practical solutions.</p>
     </div>
   </div>
 </section>
@@ -668,6 +808,57 @@
       <p class="bento-role">Ex-Chairperson</p>
       <span class="bento-number">05</span>
     </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section" id="journey">
+  <p class="section-label reveal">Journey</p>
+  <h2 class="section-title reveal">The path so far.</h2>
+  <div class="timeline">
+    
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2026</span>
+      <p class="timeline-title">Founder</p>
+      <p class="timeline-org">WILD Productions</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2026</span>
+      <p class="timeline-title">BCA UG Representative</p>
+      <p class="timeline-org">College Senate</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2026</span>
+      <p class="timeline-title">Tech Lead</p>
+      <p class="timeline-org">μLearn CEK</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2025</span>
+      <p class="timeline-title">Finance Lead</p>
+      <p class="timeline-org">IEDC CEK</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2025</span>
+      <p class="timeline-title">Started BCA (Hons)</p>
+      <p class="timeline-org">College of Engineering Karunagappally</p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <span class="timeline-year">2023</span>
+      <p class="timeline-title">Chairperson</p>
+      <p class="timeline-org">JFKM VHSS</p>
+    </div>
+
   </div>
 </section>
 
@@ -709,6 +900,16 @@
 
     <!-- Right: Formspree form -->
     <div class="reveal">
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;color:var(--off-white);">Let's Collaborate</h3>
+        <p style="color:var(--text);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;">Whether it's a project, event, community initiative, workshop, or creative idea, I'm always open to meaningful conversations and opportunities.</p>
+        <div class="btn-group">
+          <button type="button" class="btn-primary contact-action-btn" data-text="Hire me: I would like to discuss hiring you for an upcoming role/project." style="border:none;cursor:none;">Hire Me</button>
+          <button type="button" class="btn-ghost contact-action-btn" data-text="Collaborate: Let's build something together. I have an idea." style="border-top:none;border-left:none;border-right:none;background:transparent;cursor:none;">Collaborate</button>
+          <button type="button" class="btn-ghost contact-action-btn" data-text="Let's Talk: I'd love to connect and chat about events, tech, or communities." style="border-top:none;border-left:none;border-right:none;background:transparent;cursor:none;">Let's Talk</button>
+        </div>
+      </div>
+      
       <form id="contactForm" method="POST" action="https://formspree.io/f/xovnngzg"
             style="display:grid;gap:1rem;">
         <input type="hidden" name="_subject" value="New message from portfolio" />
@@ -887,9 +1088,11 @@
     localStorage.setItem('bk-theme', isLight ? 'light' : 'dark');
   });
 
-  // --- FORM CHIPS ---
+  // --- FORM CHIPS & ACTION BUTTONS ---
   const chips = document.querySelectorAll('.chip');
+  const actionBtns = document.querySelectorAll('.contact-action-btn');
   const msgArea = document.getElementById('cmsg');
+  
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => { c.style.background = ''; c.style.borderColor = 'var(--border)'; c.style.color = 'var(--text)'; });
@@ -897,6 +1100,15 @@
       chip.style.borderColor = 'var(--amber)';
       chip.style.color = '#0A0A0A';
       msgArea.value = chip.dataset.text;
+    });
+  });
+
+  actionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      msgArea.value = btn.dataset.text;
+      msgArea.focus();
+      // Scroll smoothly to form if needed
+      document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   });
 
