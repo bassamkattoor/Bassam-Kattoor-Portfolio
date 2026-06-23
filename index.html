@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bassam Kattoor — Producer · Developer · Leader</title>
+<title>Bassam Kattoor - Producer · Developer · Leader</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -422,7 +422,7 @@
   @media (max-width: 768px) {
     nav { padding: 1rem 1.2rem; }
     .nav-links { gap: 1.2rem; }
-    .nav-links li:nth-child(n+4) { display: none; }
+    .nav-links li:nth-child(n+3):not(:last-child) { display: none; }
     #hero { padding: 2rem 1.2rem; }
     #stats { grid-template-columns: 1fr; }
     .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
@@ -435,6 +435,9 @@
     .section { padding: 3.5rem 1.2rem; }
     body { cursor: auto; }
     #cursor, #cursor-ring { display: none; }
+    #contact { padding: 3.5rem 1.2rem !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+    .form-row { grid-template-columns: 1fr !important; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -475,7 +478,7 @@
     <span class="line"><span>Kattoor</span></span>
   </h1>
   <p class="hero-tagline">
-    BCA student, event producer, and founder building things that move people —
+    BCA student, event producer, and founder building things that move people -
     on stage, on screen, and on the web.
   </p>
   <div class="hero-bottom">
@@ -508,7 +511,7 @@
 <section class="section reveal" id="about">
   <div>
     <p class="section-label">About me</p>
-    <h2 class="section-title">I build experiences — live and digital.</h2>
+    <h2 class="section-title">I build experiences - live and digital.</h2>
     <div class="about-text">
       <p>I'm Bassam, a BCA (Hons) student at College of Engineering Karunagappally with a knack for making things happen. Whether it's a 500-person event or a client's website, I own the process end to end.</p>
       <p>I founded WILD Productions to channel my passion for live events into a real operation. Alongside that, I write code, lead campus communities, and explore what AI can do for creators and builders.</p>
@@ -688,13 +691,13 @@
 
 <!-- CONTACT -->
 <section id="contact" style="padding:6rem 2.5rem;">
-  <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start;max-width:1100px;margin:0 auto;">
+  <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start;max-width:1100px;margin:0 auto;">
 
     <!-- Left: CTA + direct links -->
     <div>
       <p class="section-label reveal">Contact</p>
       <h2 class="contact-title reveal" style="text-align:left;">Let's make<br />something <span>great.</span></h2>
-      <p class="contact-sub reveal" style="text-align:left;margin:0 0 1.5rem;">Whether it's a project, an event, or just a conversation — I'm open to it.</p>
+      <p class="contact-sub reveal" style="text-align:left;margin:0 0 1.5rem;">Whether it's a project, an event, or just a conversation - I'm open to it.</p>
       <div class="contact-links reveal" style="justify-content:flex-start;flex-direction:column;align-items:flex-start;">
         <a href="mailto:bassamkattoor@gmail.com" class="contact-link">✉ bassamkattoor@gmail.com</a>
         <a href="https://wa.me/qr/XCANKKQMWSSQL1" target="_blank" rel="noreferrer" class="contact-link">💬 WhatsApp</a>
@@ -709,7 +712,7 @@
       <form id="contactForm" method="POST" action="https://formspree.io/f/xovnngzg"
             style="display:grid;gap:1rem;">
         <input type="hidden" name="_subject" value="New message from portfolio" />
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
           <div style="display:flex;flex-direction:column;gap:0.4rem;">
             <label for="cname" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">Name</label>
             <input id="cname" name="name" type="text" placeholder="Your name" required
